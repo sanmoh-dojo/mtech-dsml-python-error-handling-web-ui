@@ -11,7 +11,7 @@ export default class extends Vue {
   async handleSubmit () {
     try {
       this.loading = true;
-      await this.$axios.$post(`${process.env.API_BASE_URL}/upload`, { id: this.id, name: this.name, phonenumber: this.phone });
+      await this.$axios.$post("/registration", { id: this.id, name: this.name, phonenumber: this.phone });
     } catch (error) {
       console.error(error);
     } finally {
