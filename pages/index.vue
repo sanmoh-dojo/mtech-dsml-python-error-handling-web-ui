@@ -11,7 +11,17 @@ export default class extends Vue {
   async handleSubmit () {
     try {
       this.loading = true;
-      await this.$axios.post("API_URL", { id: this.id, name: this.name, phonenumber: this.phone });
+      await this.$axios.post(
+        "/",
+        {
+          id: this.id,
+          name: this.name,
+          phonenumber: this.phone
+        },
+        {
+          baseURL: process.env.API_BASE_URL
+        }
+      );
     } catch (error) {
       console.error(error);
     } finally {
@@ -38,6 +48,8 @@ export default class extends Vue {
     </v-row>
   </v-container>
 </template>
+
+<!--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-->
 
 <style scoped>
 .vertical-center {
