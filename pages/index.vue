@@ -11,17 +11,7 @@ export default class extends Vue {
   async handleSubmit () {
     try {
       this.loading = true;
-      await this.$axios.post(
-        "/",
-        {
-          id: this.id,
-          name: this.name,
-          phonenumber: this.phone
-        },
-        {
-          baseURL: process.env.API_BASE_URL
-        }
-      );
+      await this.$axios.$post(`${process.env.API_BASE_URL}/upload`, { id: this.id, name: this.name, phonenumber: this.phone });
     } catch (error) {
       console.error(error);
     } finally {
@@ -42,7 +32,7 @@ export default class extends Vue {
           <v-text-field label="ID" placeholder="Please Enter User ID" outlined />
           <v-text-field label="Name" placeholder="Please Enter Full Name" outlined />
           <v-text-field label="Phone Number" placeholder="Please Enter User's Phone Number" outlined />
-          <v-btn type="submit" color="primary" block>Submit</v-btn>
+          <v-btn :loading="loading" type="submit" color="primary" block>Submit</v-btn>
         </v-form>
       </v-col>
     </v-row>
