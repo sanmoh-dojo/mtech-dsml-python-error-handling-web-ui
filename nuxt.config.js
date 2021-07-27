@@ -49,7 +49,9 @@ export default {
     '@nuxtjs/axios',
   ],
   axios: {
-    baseURL: "http://127.0.0.1:5000"
+    baseURL: "http://127.0.0.1:5000",
+    proxyHeaders: false,
+    credentials: false
   },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
