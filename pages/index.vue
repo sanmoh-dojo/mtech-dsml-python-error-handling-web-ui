@@ -30,9 +30,9 @@ export default class extends Vue {
     <v-row align="center" justify="center" class="mt-5">
       <v-col md="6" sm="12">
         <v-form @submit.prevent="handleSubmit">
-          <v-text-field label="ID" placeholder="Please Enter User ID" outlined />
-          <v-text-field label="Name" placeholder="Please Enter Full Name" outlined />
-          <v-text-field label="Phone Number" placeholder="Please Enter User's Phone Number" outlined />
+          <v-text-field v-model="id" label="ID" placeholder="Please Enter User ID" outlined />
+          <v-text-field v-model="name" label="Name" placeholder="Please Enter Full Name" outlined />
+          <v-text-field v-model="phone" label="Phone Number" placeholder="Please Enter User's Phone Number" outlined />
           <v-btn :loading="loading" type="submit" color="primary" block>Submit</v-btn>
         </v-form>
       </v-col>
