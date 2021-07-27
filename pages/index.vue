@@ -14,6 +14,7 @@ export default class extends Vue {
       await this.$axios.$post("/registration", { id: this.id, name: this.name, phonenumber: this.phone });
     } catch (error) {
       console.error(error);
+      return false;
     } finally {
       this.loading = false;
     }
